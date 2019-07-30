@@ -2,7 +2,7 @@ extends layout
 
 block content
     div(class='fade-in-lightbox')
-        div(id='login-box', hidden='hidden')
+        div(id='login-box')
             h1= login
             form(method='post', action='/users')
                 div(id='index-input-block')
@@ -11,7 +11,7 @@ block content
                 input(class='button-style', type='submit', value=next)
             button(id='signup' class='text-button-style')= signup
 
-        div(id='signup-box')
+        div(id='signup-box', hidden='hidden')
             h1= signup
             form(method='post', action='/signup')
                 div(id='signup-input-block')

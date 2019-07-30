@@ -33,6 +33,9 @@
     <Content Include="app.js" />
     <Content Include="libman.json" />
     <Content Include="public\images\0.jpg" />
+    <Content Include="public\javascripts\jquery.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="routes\index.js" />
     <Content Include="routes\signup.js">
       <SubType>Code</SubType>

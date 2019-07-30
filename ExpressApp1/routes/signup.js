@@ -3,12 +3,6 @@ var express = require('express');
 var router = express.Router();
 
 var mysql = require('mysql');
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'z',
-    password: '',
-    database: 'express'
-});
 
 var bcrypt = require('bcryptjs');
 
@@ -20,10 +14,18 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
     var username = req.body.username;
     var password_unsafe = req.body.password;
-    var password_safe = bcrypt.hashSync(password_unsafe, 10);
+    var password_safe = bcrypt.hashSync(password_unsafe, '$2a$10$7a7URKSTObz8sa1gtHr5J.');
 
-    connection.connect(function (e, args) {
-        if (e) {
+    var connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: '8436theNew',
+        database: 'express',
+        insecureAuth: true
+    });
+
+    connection.connect(function (ce, args) {
+        if (ce) {
             res.sendStatus(403);
         } else {
             var query = connection.query('SELECT * FROM users WHERE username = ? AND password = ?',
@@ -42,9 +44,9 @@ router.post('/', function (req, res) {
                                 }
                             });
                     }
+                    connection.commit();
+                    connection.end();
                 });
-            connection.commit();
-            connection.end();
         }
     });
 });
