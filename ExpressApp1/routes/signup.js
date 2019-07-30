@@ -23,27 +23,30 @@ router.post('/', function (req, res) {
     var password_safe = bcrypt.hashSync(password_unsafe, 10);
 
     connection.connect(function (e, args) {
-        if (e) alert(e);
+        if (e) {
+            res.sendStatus(403);
+        } else {
+            var query = connection.query('SELECT * FROM users WHERE username = ? AND password = ?',
+                [username, password_safe],
+                function (err, results, fields) {
+                    if (err || results.length !== 0) {
+                        res.sendStatus(403);
+                    } else {
+                        var q = connection.query('INSERT INTO users (username, password) VALUES (?, ?);',
+                            [username, password_safe],
+                            function (e, r, f) {
+                                if (e) {
+                                    res.sendStatus(403);
+                                } else {
+                                    res.sendStatus(200);
+                                }
+                            });
+                    }
+                });
+            connection.commit();
+            connection.end();
+        }
     });
-    var query = connection.query('SELECT * FROM users WHERE username = ? AND password = ?',
-        [username, password_safe],
-        function (err, results, fields) {
-            if (err || results.length !== 0) {
-                res.sendStatus(403);
-            } else {
-                var q = connection.query('INSERT INTO users (username, password) VALUES (?, ?);',
-                    [username, password_safe],
-                    function (e, r, f) {
-                        if (e) {
-                            res.sendStatus(403);
-                        } else {
-                            res.sendStatus(200);
-                        }
-                    });
-            }
-        });
-    connection.commit();
-    connection.end();
 });
 
 module.exports = router;
