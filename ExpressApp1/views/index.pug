@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    div(class='fade-in-lightbox')
+        div(id='login-box', hidden='hidden')
+            h1= login
+            form(method='post', action='/users')
+                div(id='index-input-block')
+                    input(name='username', class='text-style', type='text', placeholder=username)
+                    input(name='password', class='text-style', type='password', placeholder=password)
+                input(class='button-style', type='submit', value=next)
+            button(id='signup' class='text-button-style')= signup
+
+        div(id='signup-box')
+            h1= signup
+            form(method='post', action='/signup')
+                div(id='signup-input-block')
+                    input(name='username', class='text-style', type='text', placeholder=username)
+                    input(name='password', class='text-style', type='password', placeholder=password)
+                    input(name='repeat-password', class='text-style', type='password', placeholder=repeatPassword)
+                input(class='button-style', type='submit', value=next)
+            button(id='login' class='text-button-style')= login

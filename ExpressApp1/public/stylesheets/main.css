@@ -1,0 +1,102 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-image: url(/images/0.jpg)
+}
+
+a {
+    color: #00B7FF;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 18.76px;
+    margin-bottom: 18.76px;
+}
+
+button, input.button-style {
+    height: 32px;
+    width: 108px;
+    background-color: white;
+    opacity: 1.0;
+    border-style: none;
+    text-align: center;
+    font-size: 15px;
+}
+
+button.text-button-style {
+    height: auto;
+    width: auto;
+    font-size: 14px;
+    color: darkblue;
+    display: block;
+    background-color: transparent;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button.text-button-style:hover {
+    color: darkcyan;
+    background-color: transparent;
+}
+
+button.text-button-style:active {
+    color: white;
+    background-color: black;
+}
+
+button.text-button-style#signup, button.text-button-style#login {
+    position: absolute;
+    right: 54px;
+    bottom: 80px;
+}
+
+button:hover, input.button-style:hover {
+    background-color: gray;
+}
+
+button:active, input.button-style:active {
+    background-color: black;
+    color: white;
+}
+
+input.text-style {
+    font-size: 18px;
+    width: 420px;
+    margin-top: 20px;
+    background-color: transparent;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-bottom-color: gray;
+    border-bottom-width: 1px;
+    font-family: 'Source Code Pro', 'Lucida Console', 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
+input.text-style:focus {
+    border-bottom-color: black;
+}
+
+div#index-input-block {
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+
+div#signup-input-block {
+    margin-top: 67px;
+    margin-bottom: 67px;
+}
+
+.fade-in-lightbox {
+    height: 368.41px;
+    width: 440px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -228.205px;
+    margin-left: -264px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 44px 44px 44px 44px;
+}
