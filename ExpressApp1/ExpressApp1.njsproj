@@ -36,6 +36,9 @@
     <Content Include="public\javascripts\jquery.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="public\javascripts\login.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="routes\index.js" />
     <Content Include="routes\signup.js">
       <SubType>Code</SubType>

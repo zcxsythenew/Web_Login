@@ -46,7 +46,9 @@ button.text-button-style:active {
     background-color: black;
 }
 
-button.text-button-style#signup, button.text-button-style#login {
+button.text-button-style#signup,
+button.text-button-style#login,
+button.text-button-style#logout {
     position: absolute;
     right: 54px;
     bottom: 80px;
@@ -79,7 +81,7 @@ input.text-style:focus {
     border-bottom-color: black;
 }
 
-div#index-input-block {
+div#index-input-block, div#information-show-block {
     margin-top: 90px;
     margin-bottom: 90px;
 }

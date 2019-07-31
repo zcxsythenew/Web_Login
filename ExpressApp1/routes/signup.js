@@ -14,6 +14,12 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
     var username = req.body.username;
     var password_unsafe = req.body.password;
+
+    if (password_unsafe !== req.body.repeat) {
+        res.sendStatus(403);
+        return;
+    }
+
     var password_safe = bcrypt.hashSync(password_unsafe, '$2a$10$7a7URKSTObz8sa1gtHr5J.');
 
     var connection = mysql.createConnection({

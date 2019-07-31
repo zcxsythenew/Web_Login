@@ -40,7 +40,9 @@ router.post('/', function (req, res) {
                     if (err || results.length === 0) {
                         res.sendStatus(403);
                     } else {
-                        res.sendStatus(200);
+                        var dt = results[0].date;
+                        var str = dt.getFullYear().toString() + '/' + (dt.getMonth() + 1).toString() + '/' + dt.getDate().toString();
+                        res.status(200).send(str);
                     }
                 });
             connection.end();

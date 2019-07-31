@@ -1,22 +1,32 @@
 extends layout
 
+block header
+    script(src='/javascripts/login.js')
+
 block content
     div(class='fade-in-lightbox')
         div(id='login-box')
             h1= login
-            form(method='post', action='/users')
+            form(id='login-form', method='post', action='/users', onsubmit='LogIn()')
                 div(id='index-input-block')
-                    input(name='username', class='text-style', type='text', placeholder=username)
-                    input(name='password', class='text-style', type='password', placeholder=password)
+                    input(id='login-username', name='username', class='text-style', type='text', pattern='[0-9A-Za-z]{1,16}', title=patternLimit, placeholder=username)
+                    input(id='login-password', name='password', class='text-style', type='password', placeholder=password)
                 input(class='button-style', type='submit', value=next)
-            button(id='signup' class='text-button-style')= signup
+            button(id='signup' class='text-button-style' onclick='ShowSignUp()')= signup
 
         div(id='signup-box', hidden='hidden')
             h1= signup
-            form(method='post', action='/signup')
+            form(id='signup-form', method='post', action='/signup', onsubmit='SignUp()')
                 div(id='signup-input-block')
-                    input(name='username', class='text-style', type='text', placeholder=username)
-                    input(name='password', class='text-style', type='password', placeholder=password)
-                    input(name='repeat-password', class='text-style', type='password', placeholder=repeatPassword)
+                    input(id='signup-username', name='username', class='text-style', type='text', pattern='[0-9A-Za-z]{1,16}', title=patternLimit, placeholder=username)
+                    input(id='signup-password', name='password', class='text-style', type='password', placeholder=password)
+                    input(id='repeat-password', name='repeat-password', class='text-style', type='password', placeholder=repeatPassword)
                 input(class='button-style', type='submit', value=next)
-            button(id='login' class='text-button-style')= login
+            button(id='login' class='text-button-style' onclick='ShowLogIn()')= login
+
+        div(id='information-box', hidden='hidden')
+            h1= welcome
+            div(id='information-show-block')
+                p(id='information-date')= 'hello'
+                p= tipdate
+            button(id='logout' class='text-button-style' onclick='LogOut()')= logout
